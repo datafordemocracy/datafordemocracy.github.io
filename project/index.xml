@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Data for Democracy Lab</title>
+    <link>https://datafordemocracy.github.io/project/</link>
+    <description>Recent content in Projects on Data for Democracy Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Michele Claibourn</copyright>
+    <lastBuildDate>Tue, 18 Nov 2014 02:13:50 +0000</lastBuildDate>
+    
+	<atom:link href="https://datafordemocracy.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Public Interest Data Lab</title>
+      <link>https://datafordemocracy.github.io/public-interest-data-lab/</link>
+      <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/public-interest-data-lab/</guid>
+      <description>About the project Responding to increasing demand for applied trainng and experience along with a developing movement to use data and data science for the public interest, we are piloting a 1-credit Public Interest Data Lab course in Spring 2018 in partnership with the Data Science Institute. The lab course will provide experience working collaboratively, openly, and reproducibly on data science challenges brought to us by local clients. This is an exercise in learning by doing designed to provide students with an opportunity to enhance their data skills, to gain experience working as a team on a joint project, and to promote the social good.</description>
+    </item>
+    
+    <item>
+      <title>The Public Presidency Project</title>
+      <link>https://datafordemocracy.github.io/public-presidency/</link>
+      <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/public-presidency/</guid>
+      <description>About the project The first project, The Public Presidency Project, began after a series of conversations with educated people from a variety of perspectives who consistently communicated: &amp;ldquo;I can&amp;rsquo;t read the news anymore. It&amp;rsquo;s too&amp;hellip;[fill in some negative adjective].&amp;rdquo;</description>
+    </item>
+    
+  </channel>
+</rss>
