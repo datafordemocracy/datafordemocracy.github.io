@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>About</title>
+      <title>Introductions</title>
       <link>https://datafordemocracy.github.io/page/about/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 -0400</pubDate>
       
       <guid>https://datafordemocracy.github.io/page/about/</guid>
-      <description>About The Data for Democracy Lab @ UVA is a place to promote the use of data science for the common good. We aspire to a data science that is educative &amp;ndash; working to ensure more people have access to the power of data, that is inclusive &amp;ndash; emphasizing the value of diverse perspectives, experiences, and knowledge, and that is open &amp;ndash; revealing the methods, models, and limits to all and allowing others to adapt, improve, or apply the work.</description>
+      <description>What we&amp;rsquo;re about The Data for Democracy Lab @ UVA is a place to promote the use of data science for the common good. We aspire to a data science that is educative &amp;ndash; working to ensure more people have access to the power of data, that is inclusive &amp;ndash; emphasizing the value of diverse perspectives, experiences, and knowledge, and that is open &amp;ndash; revealing the methods, models, and limits to all and allowing others to adapt, improve, or apply the work.</description>
     </item>
     
     <item>
@@ -38,26 +38,17 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
       
       <guid>https://datafordemocracy.github.io/public-interest-data-lab/</guid>
-      <description>About the project Responding to increasing demand for applied trainng and experience along with a developing movement to use data and data science for the public interest, we are piloting a 1-credit Public Interest Data Lab course in Spring 2018 in partnership with the Data Science Institute. The lab course will provide experience working collaboratively, openly, and reproducibly on data science challenges brought to us by local clients. This is an exercise in learning by doing designed to provide students with an opportunity to enhance their data skills, to gain experience working as a team on a joint project, and to promote the social good.</description>
+      <description>Community Engagement and Data Training Responding to increasing demand for applied trainng and experience along with a developing movement to use data and data science for the public interest, we are piloting a 1-credit Public Interest Data Lab course in Spring 2018 in partnership with the Data Science Institute. The lab course will provide experience working collaboratively, openly, and reproducibly on data science challenges brought to us by local clients.</description>
     </item>
     
     <item>
-      <title>The Public Presidency Project</title>
+      <title>The Public Presidency</title>
       <link>https://datafordemocracy.github.io/public-presidency/</link>
       <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
       
       <guid>https://datafordemocracy.github.io/public-presidency/</guid>
-      <description>About the project The first project, The Public Presidency Project, began after a series of conversations with educated people from a variety of perspectives who consistently communicated: &amp;ldquo;I can&amp;rsquo;t read the news anymore. It&amp;rsquo;s too&amp;hellip;[fill in some negative adjective].&amp;rdquo;</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://datafordemocracy.github.io/2014/09/28/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 02:13:50 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/2014/09/28/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <description>Monitoring Presidential News Streams The initial project of the Data for Democracy Lab @ UVA, The Public Presidency Project, began to form after a series of conversations with people from a variety of perspectives who consistently communicated: &amp;ldquo;I can&amp;rsquo;t read/watch the news anymore. It&amp;rsquo;s too&amp;hellip;[exhausting, depressing, anger-inducing, polarizing, &amp;hellip; ].&amp;rdquo;
+That&amp;rsquo;s a problem. It&amp;rsquo;s not like democratic citizens have ever been acclaimed for their political attentiveness, but at the end of the day, we need to have some idea of what&amp;rsquo;s going on.</description>
     </item>
     
     <item>
@@ -68,31 +59,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <guid>https://datafordemocracy.github.io/2014/04/02/goisforlovers/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
-    </item>
-    
-    <item>
-      <title>Migrating from Jekyll</title>
-      <link>https://datafordemocracy.github.io/2014/04/02/migrate-from-jekyll/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/2014/04/02/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://datafordemocracy.github.io/2014/04/02/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/2014/04/02/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at installing hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
   </channel>
