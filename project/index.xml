@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Data for Democracy Lab</title>
-    <link>/project/</link>
+    <link>https://datafordemocracy.github.io/project/</link>
     <description>Recent content in Projects on Data for Democracy Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michele Claibourn</copyright>
     <lastBuildDate>Wed, 13 Sep 2017 02:13:50 +0000</lastBuildDate>
     
-	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datafordemocracy.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Public Presidency</title>
-      <link>/public-presidency/</link>
+      <link>https://datafordemocracy.github.io/public-presidency/</link>
       <pubDate>Wed, 13 Sep 2017 02:13:50 +0000</pubDate>
       
-      <guid>/public-presidency/</guid>
+      <guid>https://datafordemocracy.github.io/public-presidency/</guid>
       <description>Monitoring Presidential Information Streams The initial project of the Data for Democracy Lab @ UVA, The Public Presidency Project, began to form after a series of conversations with people from a variety of perspectives who consistently communicated: &amp;ldquo;I can&amp;rsquo;t read/watch the news anymore. It&amp;rsquo;s too&amp;hellip;[exhausting, depressing, distracting, anger-inducing, polarizing, &amp;hellip; ].&amp;rdquo;
 That&amp;rsquo;s a problem. It&amp;rsquo;s not like democratic citizens have ever been acclaimed for their political attentiveness, but at the end of the day, we need to have some idea of what&amp;rsquo;s going on.</description>
     </item>
     
     <item>
       <title>Public Interest Data Lab</title>
-      <link>/public-interest-data-lab/</link>
+      <link>https://datafordemocracy.github.io/public-interest-data-lab/</link>
       <pubDate>Tue, 12 Sep 2017 02:13:50 +0000</pubDate>
       
-      <guid>/public-interest-data-lab/</guid>
+      <guid>https://datafordemocracy.github.io/public-interest-data-lab/</guid>
       <description>Community Engagement and Data Praxis Responding to increasing demand for applied trainng and experience along with a developing movement to use data and data science for the public interest, we are piloting a 1-credit Public Interest Data Lab course in Spring 2018 in partnership with UVA&amp;rsquo;s Data Science Institute. The lab course will provide experience working collaboratively, openly, and reproducibly on data science challenges brought to us by local clients.</description>
     </item>
     
     <item>
       <title>Presidential Debates</title>
-      <link>/presidential-debates/</link>
+      <link>https://datafordemocracy.github.io/presidential-debates/</link>
       <pubDate>Mon, 11 Sep 2017 17:54:14 -0400</pubDate>
       
-      <guid>/presidential-debates/</guid>
+      <guid>https://datafordemocracy.github.io/presidential-debates/</guid>
       <description>2016 Presidential Debate Analysis I don’t know about you, but during the 2016 presidential campaign, I didn’t really want to watch the presidential debates; primary, general, vice-presidential – all of them were painful in some way or another to watch.
 And yet, as a political scientist who’s spent no small amount of time doing research on presidential campaigns, I felt compelled to attend to this civic event. During the primaries, I dealt with my ambivalence by following twitter debate hashtags.</description>
     </item>
