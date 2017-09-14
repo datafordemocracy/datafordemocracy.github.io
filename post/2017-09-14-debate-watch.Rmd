@@ -19,7 +19,7 @@ I used [rvest](https://github.com/hadley/rvest) to acquire the data - you can se
 
 Let's start with the complexity of the speech. The Flesch-Kincaid readability scores is only one of the readability measures available in quanteda. It's normalized to grade level reading and captures how difficult a text is to understand. It's a function of average sentence length and average: 
 
-$0.39\left(\frac{totalwords}{totalsentences}\right)+11.8\left(\frac{totalsyllables}{totalwords}\right)-15.59$
+$$0.39\left(\frac{total\,words}{total\,sentences}\right)+11.8\left(\frac{total\,syllables}{total\,words}\right)-15.59$$
 
 ```{r message=FALSE}
 library(tidyverse)
