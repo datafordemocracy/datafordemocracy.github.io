@@ -1,0 +1,14 @@
+---
+title: "Presidential Debates"
+description: "Debate watching ... from a distance"
+date: 2017-09-11T17:54:14-04:00
+draft: false
+---
+
+## 2016 Presidential Debate Analysis
+
+I don't know about you, but during the 2016 presidential campaign, I didn't really want to watch the presidential debates; primary, general, vice-presidential -- all of them were painful in some way or another to watch. 
+
+And yet, as a political scientist who's spent no small amount of time doing research on presidential campaigns, I felt compelled to attend to this civic event. During the primaries, I dealt with my ambivalence by following twitter debate hashtags. But once we hit the general election season, I decided to channel my anxiety more productively -- I started scraping the debate texts and playing with them in R. 
+
+I ended up presenting some of this analysis a couple of times in the fall of 2016 -- at a Digital Humanities conference at UVA and at our local [Charlottesillve R meetup](https://www.meetup.com/UVa-R-Users-Group/events/235649988). While this work preceded the launch of the Data for Demoracy Lab @ UVA, it shaped my thinking and inspired the Public Presidency Project. So I include it here as an pre-project.
