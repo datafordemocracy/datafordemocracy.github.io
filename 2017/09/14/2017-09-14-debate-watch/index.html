@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Debate Watch! &middot; Data for Democracy @ UVA</title>
+        <meta name="description" content="Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
+The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.27" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Debate Watch!">
+<meta property="og:description" content="Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
+The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2017/09/14/2017-09-14-debate-watch/">
+        <link rel="stylesheet" href="/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                            </h1>
+                        
+                        <a class="button-square" href="/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/datafordemocracy">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mclaibourn@virginia.edu">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="The Public Presidency" href="/public-presidency/">The Public Presidency</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Debate Watch!</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-09-14" itemprop="datePublished">Thu, Sep 14, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://www.sites.google.com/site/mclaibourn/home" itemprop="url" rel="author">Data for Democracy @ UVA</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <div id="exploring-the-debates" class="section level2">
+<h2>Exploring the Debates</h2>
+<p>Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.</p>
+<p>The first general election debate of 2016 broke records for <a href="https://en.wikipedia.org/wiki/United_States_presidential_debates#Timeline">presidential debate viewership</a>, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.</p>
+<p>My iniital corpus is the combined speech of Clinton and of Trump in each of their debate appearces, pulled from <a href="http://www.presidency.ucsb.edu/debates.php">UCSB’s The American Presidency Project</a>. Because I started this after the primaries, I ended up ignoring the rhetoric of the also-rans.</p>
+<p>I used <a href="https://github.com/hadley/rvest">rvest</a> to acquire the data - you can see the script <a href="https://github.com/mclaibourn/debates2016">acquire_debates.R</a> on GitHub. Probably the most widely used package for working with a corpus in R is <a href="https://cran.r-project.org/web/packages/tm/index.html">tm</a>, but here I’m using a newer package, <a href="https://github.com/kbenoit/quanteda">quanteda</a>. I generated a corpus, assigned document names and variables, and started exploring the text.</p>
+<p>Let’s start with the complexity of the speech. The Flesch-Kincaid readability scores is only one of the readability measures available in quanteda. It’s normalized to grade level reading and captures how difficult a text is to understand. It’s a function of average sentence length and average:</p>
+<p><span class="math inline">\(0.39\left(\frac{totalwords}{totalsentences}\right)+11.8\left(\frac{totalsyllables}{totalwords}\right)-15.59\)</span></p>
+<pre class="r"><code>library(tidyverse)
+library(quanteda)
+library(scales)
+
+setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;)
+load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.R
+
+fk &lt;- textstat_readability(debate16corpus, measure = &quot;Flesch.Kincaid&quot;)
+debates16$readability &lt;- fk # add measure to data frame
+
+# And plot!
+p &lt;- ggplot(debates16, aes(x = date, y = readability))
+# Add color for party, better labels/formatting for axes
+p + geom_point(aes(color=party, shape=speaker), size=3) +
+  scale_x_date(labels = date_format(&quot;%m/%d&quot;), breaks = date_breaks(&quot;5 weeks&quot;)) + # (scales)
+  ggtitle(&quot;&#39;Readability&#39; of Candidate Debate Speech&quot;) + 
+  labs(y = &quot;Readability (grade level)&quot;, x = &quot;Date of Debate&quot;) +
+  scale_color_manual(values=c(&quot;blue3&quot;, &quot;orange3&quot;), name=&quot;Speaker&quot;, guide=guide_legend(reverse = TRUE)) +
+  scale_shape_manual(values=c(19,19,1,1)) + guides(shape=FALSE) +
+  theme(plot.title = element_text(face=&quot;bold&quot;, size=20, hjust=0)) + 
+  theme(axis.title = element_text(face=&quot;bold&quot;, size=16)) + 
+  theme(panel.grid.minor = element_blank(), legend.position = c(0.77,0.9), legend.text=element_text(face=&quot;bold&quot;, size=12))</code></pre>
+<p><img src="/post/2017-09-14-debate-watch_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Trump was, by this measure at least, consistent across the primary and general election contexts, averaging a 4.3 grade level to Clinton’s 8.1 grade level. And the hollow orange dot near the top is Pence, who bears little resemblance to Trump on this score. The difference is primarily, though not wholly, a function of sentence length; Trump speaks in shorter sentences. And Clinton’s dip in the first general election appears to be a result of the frequent interruptions, reducing her sentence length in this processing of the text. <a href="http://time.com/4538271/donald-trump-nasty-woman-interruption-presidential-debate/">Time reports</a> 55 interruptions by Trump in September – about 30 were interruptions of Clinton (rather than of debate moderators) – but only 15 interruptsion by Trump in October – when only a couple were interruptions of Clinton.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>For comparison, I’ve pulled the general debate transcripts from 1960, 1976 and every campaign since, and Trump sets the record for “least complex” debate speech – the runner up is Bush the first in 1992 (with an average of 5.4th grade). The 2016 lineup also generated the biggest average difference between the candidates, at 3.8: the next largest difference was in 1996, with a gap of 2 grades, from Bill Clinton’s 7.5 to Bob Dole’s 5.5.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://fivethirtyeight.com/features/how-many-times-did-trump-interrupt-clinton-in-the-first-debate-depends-on-how-you-count/">Though opinions about how to count interruptions vary!</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
