@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Do You Hear What I Hear? &middot; Data for Democracy @ UVA</title>
+        <meta name="description" content="More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
+Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
+library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&quot;.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.27" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Do You Hear What I Hear?">
+<meta property="og:description" content="More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
+Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
+library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&quot;.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/">
+        <link rel="stylesheet" href="https://datafordemocracy.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://datafordemocracy.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/datafordemocracy">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mclaibourn@virginia.edu">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="The Public Presidency" href="/public-presidency/">The Public Presidency</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Do You Hear What I Hear?</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-09-14" itemprop="datePublished">Thu, Sep 14, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://www.sites.google.com/site/mclaibourn/home" itemprop="url" rel="author">Data for Democracy @ UVA</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <div id="more-debate-watch-or-debate-read" class="section level2">
+<h2>More Debate Watch (… or debate read?)</h2>
+<p>In the <a href="../2017-09-14-debate-watch/">prior post</a>, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.</p>
+<pre class="r"><code>library(tidyverse)
+library(quanteda)
+library(scales)
+library(tidytext) 
+
+setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;)
+load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.R
+
+# Pull dictionary from tidytext, set dictionary in quanteda, and apply it to corpus
+bing &lt;- sentiments %&gt;% filter(lexicon==&quot;bing&quot;) 
+sentDict &lt;- dictionary(list(positive = bing$word[bing$sentiment==&quot;positive&quot;], negative = bing$word[bing$sentiment==&quot;negative&quot;])) 
+debateToneDFM &lt;- dfm(debate16corpus, dictionary = sentDict) 
+
+# Turn the values into a data frame, create overal tone variable, and add to existing data frame
+debateTone &lt;- as.data.frame(debateToneDFM, row.names = debateToneDFM@Dimnames$docs) 
+debateTone$id &lt;- row.names(debateTone) 
+debateTone &lt;- debateTone %&gt;% 
+  mutate(tone = positive - negative)
+debates16$tone &lt;- debateTone$tone 
+
+# Plot!
+p &lt;- ggplot(debates16, aes(x=date, y=tone))
+p + geom_point(aes(color=party, shape=speaker), size=3) + 
+  geom_hline(yintercept=median(debates16$tone), color=&quot;gray50&quot;) +
+  scale_x_date(labels = date_format(&quot;%m/%d&quot;), breaks = date_breaks(&quot;5 weeks&quot;)) + 
+  ggtitle(&quot;&#39;Tone&#39; of Candidate Debate Speech&quot;) + 
+  labs(y = &quot;Overall Tone (Negative to Positive)&quot;, x = &quot;Date of Debate&quot;) +
+  scale_color_manual(values=c(&quot;blue3&quot;, &quot;orange3&quot;), name=&quot;Speaker&quot;, guide=guide_legend(reverse = TRUE)) +
+  scale_shape_manual(values=c(19,19,1,1)) + guides(shape=FALSE) +
+  theme(plot.title = element_text(face=&quot;bold&quot;, size=20, hjust=0)) + 
+  theme(axis.title = element_text(face=&quot;bold&quot;, size=16)) + 
+  theme(panel.grid.minor = element_blank(), legend.position = c(0.77,0.9), legend.text=element_text(face=&quot;bold&quot;, size=12))</code></pre>
+<p><img src="/post/2017-09-14-do-you-hear-what-i-hear_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Higher values represent a more positive tone (positive words - negative words).</p>
+<p>I had some priors about this… and mostly they were confirmed. There’s a plausible trajectory where Clinton’s debate speech became more positive over the course of the primary campaign, as she becomes ever more certain of winning the nomination, though this changes notably once she’s engaging Trump directly. Trump, for his part, is nearly always below average, hitting a low in the October town hall debate.</p>
+<p>We can also look at the dynamics of tone within a debate. Here I change the document unit to a sentence.</p>
+<pre class="r"><code>library(stringr)
+
+# Change the documentary units into sentences
+debate16corpusSent &lt;- corpus_reshape(debate16corpus, to=&quot;sentences&quot;)
+# Apply dictionary
+debateToneSentDFM &lt;- dfm(debate16corpusSent, dictionary = sentDict)
+
+# Turn this into a dataframe, create tone=positive-negative
+debateToneSent &lt;- as.data.frame(debateToneSentDFM)
+debateToneSent$id &lt;- row.names(debateToneSent) # keep row names as id
+debateToneSent$seq &lt;- as.integer(str_sub(debateToneSent$id, 16)) # extract sentence order
+debateToneSent$event &lt;- str_sub(debateToneSent$id, 1,14) # (stringr)
+debateToneSent$speaker &lt;- str_sub(debateToneSent$id, 1,3)
+debateToneSent$date &lt;- str_sub(debateToneSent$id, 5,14)
+debateToneSent$party &lt;- ifelse(debateToneSent$speaker %in% c(&quot;HRC&quot;, &quot;TMK&quot;), &quot;Dem&quot;, &quot;Rep&quot;)
+debateToneSent$date &lt;- as.Date(debateToneSent$date, format=&quot;%Y-%m-%d&quot;)
+
+debateToneSent &lt;- debateToneSent %&gt;% 
+  mutate(tone = positive - negative)
+
+# Graph 10/09/2016 town hall debate tone by sentence
+debateToneSent2 &lt;- debateToneSent %&gt;% # get desired debate
+  filter(event==&quot;HRC 2016-10-09&quot; | event==&quot;DJT 2016-10-09&quot;)
+p &lt;- ggplot(debateToneSent2, aes(x=seq, y=tone))
+p + geom_point(size=0.5) + geom_smooth(method=&quot;loess&quot;, span=.33) + 
+  facet_wrap(~event, scales=&quot;free_x&quot;)</code></pre>
+<p><img src="/post/2017-09-14-do-you-hear-what-i-hear_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Kind of cool, if not particularly enlightening. Just for fun (and a little validation), let’s pull out the most positively scored sentence and the most negatively scored sentence is the town hall debate.</p>
+<pre class="r"><code># Peak positive, negative
+maxPos &lt;- subset(debateToneSent2, tone==max(debateToneSent2$tone), select=id) # most positive sentence
+debate16corpusSent$documents$text[docnames(debate16corpusSent)==maxPos$id]</code></pre>
+<pre><code>## [1] &quot;That&#39;s why-to go back to your question-I want to send a message-we all should-to every boy and girl and, indeed, to the entire world that America already is great, but we are great because we are good, and we will respect one another, and we will work with one another, and we will celebrate our diversity.&quot;</code></pre>
+<pre class="r"><code>maxNeg &lt;- subset(debateToneSent2, tone==min(debateToneSent2$tone), select=id) # most negative sentence
+debate16corpusSent$documents$text[docnames(debate16corpusSent)==maxNeg$id]</code></pre>
+<pre><code>## [1] &quot;And when she said irredeemable, they&#39;re irredeemable, you didn&#39;t mention that, but when she said they&#39;re irredeemable, to me that might have been even worse.&quot;</code></pre>
+<p>Respect, work, diversity on one hand and but “she said irredeeable” on the other. Sounds about right.</p>
+<p>Still tone, or overall polarity, obscures alot of what political scientists who study communication and persuasion care about. Next I use the NRC sentiment lexicon, also available in tidytext, to look at particular negative emotions – fear and anger and particular positive emotions – anticipation and trust (positive). These are some of the most relevant emotional registers for campaigns.</p>
+<pre class="r"><code># pull dictionary, set dictionary, and apply
+nrc &lt;- sentiments %&gt;% filter(lexicon==&quot;nrc&quot;) 
+affectDict &lt;- dictionary(list(angerW=nrc$word[nrc$sentiment==&quot;anger&quot;],
+                              fearW=nrc$word[nrc$sentiment==&quot;fear&quot;],
+                              anticipationW=nrc$word[nrc$sentiment==&quot;anticipation&quot;],
+                              trustW=nrc$word[nrc$sentiment==&quot;trust&quot;]))
+debateAffectDFM &lt;- dfm(debate16corpus, dictionary = affectDict) 
+
+# Turn into a dataframe, add to existing dataframe
+debateAffect &lt;- as.data.frame(debateAffectDFM, row.names = debateAffectDFM@Dimnames$docs)
+debateAffect$id &lt;- row.names(debateAffect) 
+debateAffect &lt;- debateAffect %&gt;% 
+  mutate(tot=angerW+fearW+anticipationW+trustW,
+         anger=(angerW/tot)*100,
+         fear=(fearW/tot)*100,
+         anticipation=(anticipationW/tot)*100,
+         trust=(trustW/tot)*100)
+debates16[,7:10] &lt;- debateAffect[,7:10]
+
+# Gather the four variables
+debates16long &lt;- debates16 %&gt;% 
+  select(date, speaker, party, anger, fear, anticipation, trust) %&gt;% 
+  gather(sentiment, value, -date, -speaker, -party)
+
+# Plot
+p &lt;- ggplot(debates16long, aes(x=date, y=value)) 
+p + geom_point(aes(color=party, shape=speaker), size=2) + 
+  scale_x_date(labels = date_format(&quot;%m/%d&quot;), breaks = date_breaks(&quot;5 weeks&quot;)) + 
+  ggtitle(&quot;&#39;Affect&#39; of Candidate Debate Speech&quot;) + 
+  labs(y = &quot;Level of Affect&quot;, x = &quot;Date of Debate&quot;) +
+  facet_wrap(~ sentiment, ncol=2, scales=&quot;free_y&quot;) + 
+  scale_color_manual(values=c(&quot;blue3&quot;, &quot;orange3&quot;)) +
+  scale_shape_manual(values=c(19,19,1,1)) + guides(shape=&quot;none&quot;, color=&quot;none&quot;) +
+  theme(plot.title = element_text(face=&quot;bold&quot;, size=20, hjust=0)) + 
+  theme(axis.title = element_text(face=&quot;bold&quot;, size=16)) + 
+  theme(strip.text = element_text(size=16)) +
+  theme(panel.grid.minor = element_blank(), legend.position = c(0.85,0.9), legend.text=element_text(face=&quot;bold&quot;, size=12))</code></pre>
+<p><img src="/post/2017-09-14-do-you-hear-what-i-hear_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Even without the visual of each candidate’s manner and stance (which was where a good deal of the affect resides), we can see the difference in candidate style in Trump’s and Clinton’s speech acts. The biggest difference was in the use of anger.</p>
+<p>These approaches aren’t the only way to look at tone or affect, of course. We might choose any number of alternative dictionaries, with any number of alternative features. But even this simple approach seems to be getting at something with some face validity.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Because who wasn’t dying to relive last year’s presidential campaign!<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://datafordemocracy.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://datafordemocracy.github.io/js/jquery.fitvids.js"></script>
+        
+        <script src="//yihui.name/js/math-code.js"></script>
+        <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://datafordemocracy.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

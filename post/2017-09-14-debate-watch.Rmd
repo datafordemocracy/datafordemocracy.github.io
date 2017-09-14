@@ -1,7 +1,7 @@
 ---
 title: Debate Watch!
 author: Michele Claibourn
-date: '2017-09-14'
+date: '2017-09-13'
 slug: debate-watch
 categories: []
 tags: []
@@ -15,7 +15,7 @@ The first general election debate of 2016 broke records for [presidential debate
 
 My iniital corpus is the combined speech of Clinton and of Trump in each of their debate appearces, pulled from [UCSB's The American Presidency Project](http://www.presidency.ucsb.edu/debates.php). Because I started this after the primaries, I ended up ignoring the rhetoric of the also-rans. 
 
-I used [rvest](https://github.com/hadley/rvest) to acquire the data - you can see the script [acquire_debates.R](https://github.com/mclaibourn/debates2016) on GitHub. Probably the most widely used package for working with a corpus in R is [tm](https://cran.r-project.org/web/packages/tm/index.html), but here I'm using a newer package, [quanteda](https://github.com/kbenoit/quanteda). I generated a corpus, assigned document names and variables, and started exploring the text.
+I used [rvest](https://github.com/hadley/rvest) to acquire the data - you can see the script [acquire_debates.R](https://github.com/mclaibourn/debates2016) on GitHub. Probably the most widely used package for working with a corpus in R is [tm](https://cran.r-project.org/web/packages/tm/index.html), but here I'm using a newer package, [quanteda](https://github.com/kbenoit/quanteda). I wanted documents that reflected the speech acts of individual candidates. The transcripts read in as one blob, so I extracted the speaker, split by the speaker, and created an object that retained each speaker. Using this, I generated a corpus, assigned document names and variables, and started exploring the text.
 
 Let's start with the complexity of the speech. The Flesch-Kincaid readability scores is only one of the readability measures available in quanteda. It's normalized to grade level reading and captures how difficult a text is to understand. It's a function of average sentence length and average: 
 

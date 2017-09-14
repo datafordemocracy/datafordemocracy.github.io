@@ -13,13 +13,14 @@
     
     
     <item>
-      <title>Debate Watch!</title>
-      <link>https://datafordemocracy.github.io/2017/09/14/2017-09-14-debate-watch/</link>
+      <title>Do You Hear What I Hear?</title>
+      <link>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://datafordemocracy.github.io/2017/09/14/2017-09-14-debate-watch/</guid>
-      <description>Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
-The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.</description>
+      <guid>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
+      <description>More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
+Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
+library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&amp;quot;.</description>
     </item>
     
     <item>
@@ -30,6 +31,16 @@ The first general election debate of 2016 broke records for presidential debate 
       <guid>https://datafordemocracy.github.io/public-presidency/</guid>
       <description>Monitoring Presidential Information Streams The initial project of the Data for Democracy Lab @ UVA, The Public Presidency Project, began to form after a series of conversations with people from a variety of perspectives who consistently communicated: &amp;ldquo;I can&amp;rsquo;t read/watch the news anymore. It&amp;rsquo;s too&amp;hellip;[exhausting, depressing, distracting, anger-inducing, polarizing, &amp;hellip; ].&amp;rdquo;
 That&amp;rsquo;s a problem. It&amp;rsquo;s not like democratic citizens have ever been acclaimed for their political attentiveness, but at the end of the day, we need to have some idea of what&amp;rsquo;s going on.</description>
+    </item>
+    
+    <item>
+      <title>Debate Watch!</title>
+      <link>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</guid>
+      <description>Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
+The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.</description>
     </item>
     
     <item>
