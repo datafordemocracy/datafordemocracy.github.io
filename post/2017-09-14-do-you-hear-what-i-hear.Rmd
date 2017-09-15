@@ -4,14 +4,14 @@ author: Michele Claibourn
 date: '2017-09-14'
 slug: do-you-hear-what-i-hear
 categories: []
-tags: []
+tags: [R, quanteda, tidytext, debates]
 ---
 
 ## More Debate Watch (... or debate read?)
 
 In the [prior post](../2017-09-14-debate-watch/), I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here's more![^1]
 
-Let's switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump's and Clinton's speech using quanteda's dictionary function.  
+Let's switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in [tidytext](http://tidytextmining.com/)) to capture the tone or sentiment of Trump's and Clinton's speech using quanteda's dictionary function.  
 
 ```{r message=FALSE}
 library(tidyverse)

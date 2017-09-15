@@ -19,7 +19,7 @@
       
       <guid>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
       <description>More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
-Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to measure the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
+Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to capture the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
 library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&amp;quot;.</description>
     </item>
     
@@ -31,27 +31,6 @@ library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&am
       <guid>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</guid>
       <description>Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
 The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>https://datafordemocracy.github.io/2015/07/23/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/2015/07/23/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://datafordemocracy.github.io/2014/04/02/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/2014/04/02/goisforlovers/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@ author: Michele Claibourn
 date: '2017-09-13'
 slug: debate-watch
 categories: []
-tags: []
+tags: [R, quanteda, debates]
 ---
 
 ## Exploring the Debates

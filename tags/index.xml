@@ -7,80 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michele Claibourn</copyright>
-    <lastBuildDate>Wed, 02 Apr 2014 02:13:50 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://datafordemocracy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Development</title>
-      <link>https://datafordemocracy.github.io/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
+      <title>Debates</title>
+      <link>https://datafordemocracy.github.io/tags/debates/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://datafordemocracy.github.io/tags/development/</guid>
+      <guid>https://datafordemocracy.github.io/tags/debates/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Go</title>
-      <link>https://datafordemocracy.github.io/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
+      <title>Quanteda</title>
+      <link>https://datafordemocracy.github.io/tags/quanteda/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://datafordemocracy.github.io/tags/go/</guid>
+      <guid>https://datafordemocracy.github.io/tags/quanteda/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Golang</title>
-      <link>https://datafordemocracy.github.io/tags/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
+      <title>R</title>
+      <link>https://datafordemocracy.github.io/tags/r/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://datafordemocracy.github.io/tags/golang/</guid>
+      <guid>https://datafordemocracy.github.io/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Plot</title>
-      <link>https://datafordemocracy.github.io/tags/plot/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Tidytext</title>
+      <link>https://datafordemocracy.github.io/tags/tidytext/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://datafordemocracy.github.io/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>https://datafordemocracy.github.io/tags/r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regression</title>
-      <link>https://datafordemocracy.github.io/tags/regression/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Templates</title>
-      <link>https://datafordemocracy.github.io/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Themes</title>
-      <link>https://datafordemocracy.github.io/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
-      
-      <guid>https://datafordemocracy.github.io/tags/themes/</guid>
+      <guid>https://datafordemocracy.github.io/tags/tidytext/</guid>
       <description></description>
     </item>
     
