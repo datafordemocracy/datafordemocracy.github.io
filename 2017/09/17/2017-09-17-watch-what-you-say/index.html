@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Watch What You Say &middot; Data for Democracy @ UVA</title>
+        <meta name="description" content="The Content of Debates In addition to the complexity and the tone of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?
+Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
+rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;) load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.27" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Watch What You Say">
+<meta property="og:description" content="The Content of Debates In addition to the complexity and the tone of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?
+Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
+rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;) load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2017/09/17/2017-09-17-watch-what-you-say/">
+        <link rel="stylesheet" href="/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                            </h1>
+                        
+                        <a class="button-square" href="/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/datafordemocracy">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mclaibourn@virginia.edu">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="The Public Presidency" href="/public-presidency/">The Public Presidency</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Watch What You Say</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-09-17" itemprop="datePublished">Sun, Sep 17, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://www.sites.google.com/site/mclaibourn/home" itemprop="url" rel="author">Data for Democracy @ UVA</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <div id="the-content-of-debates" class="section level2">
+<h2>The Content of Debates</h2>
+<p>In addition to the <a href="../../14/2017-09-14-debate-watch/">complexity</a> and the <a href="../../14/2017-09-14-do-you-hear-what-i-hear/">tone</a> of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?</p>
+<p>Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.</p>
+<pre class="r"><code>rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(wordcloud)
+
+setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;)
+load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.R
+
+# subset for just HRC, DJT
+candcorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;HRC&quot; | speaker==&quot;DJT&quot;)
+
+# create document feature matrix
+debatedfm &lt;- dfm(candcorpus, 
+               remove = c(stopwords(&quot;english&quot;), 
+                          &quot;applause&quot;, &quot;laughter&quot;, &quot;crosstalk&quot;, &quot;laughther&quot;),
+               remove_punct = TRUE,
+               remove_numbers = TRUE,
+               verbose = TRUE)
+
+# most frequent terms
+topfeatures(debatedfm, n = 25, groups = &quot;speaker&quot;)</code></pre>
+<pre><code>## $HRC
+##     think    people      know      well       can     going       get 
+##       477       435       403       321       319       308       302 
+## president      want      said      make      just       lot        us 
+##       292       285       228       218       210       186       180 
+##      need   senator   country       one       got        go      work 
+##       178       175       174       173       171       168       162 
+##       now       say      also      look 
+##       151       141       140       132 
+## 
+## $DJT
+##   going  people country    know    just   think     say     get    want 
+##     513     489     301     288     253     249     248     238     225 
+##    said     one    look    many    well     now    like   great     way 
+##     221     201     198     191     184     183     176     172     163 
+##    tell   right    take     can      go    back   years 
+##     158     153     151     139     139     137     122</code></pre>
+<p>Honestly, basic word frequencies revealed little of substance, so I’ll skip straight to the obligatory wordcloud (I’m pretty sure there’s a rule). To make the piechart of text visualization a little more interesting, I’ll do a comparison cloud to represent the words that are most distinctive to one of the speakers.</p>
+<pre class="r"><code># set up for figure
+debatedf &lt;- as.data.frame(debatedfm) # turn into dataframe
+hrcdf &lt;- rowSums(t(debatedf[1:13,])) # sum word use by candidate
+djtdf &lt;- rowSums(t(debatedf[14:27,]))
+d &lt;- as.data.frame(cbind(hrcdf, djtdf))
+
+# word comparison cloud (wordcloud)
+colnames(d) &lt;- c(&quot;HRC&quot;, &quot;DJT&quot;)
+comparison.cloud(d, max.words=200, 
+                 scale=c(4,.33), random.order=FALSE, 
+                 colors=c(&quot;blue3&quot;, &quot;orange3&quot;), title.size=1)</code></pre>
+<p><img src="/post/2017-09-17-watch-what-you-say_files/figure-html/unnamed-chunk-2-1.png" width="672" /> The bigger the word, the more its rate of appearance in one set of texts exceeds its rate of use across the entire collection.</p>
+<p>For HRC we have: president, senator, support, think, work; some Sanders, Donald, health, and american; and bits of families, children, affordable, and working.</p>
+<p>For DJT we have: going, country, people, say, look, great, and many; with some of tremendous, china, deal, wrong, disaster, bad, nobody; and smaller bits of million, money, mean. I struggle to find issue-related words here, except in some tiny words (russia, mexico, border, isis, obamacare). In part, this underscores how little substance was emphasized in these events.</p>
+<p>One last angle (for this post) – another simple way to get a snapshot of the debate substance is to explore key-words-in-context for target words, like so:</p>
+<pre class="r"><code># subsetting the corpus
+hrccorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;HRC&quot;)
+djtcorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;DJT&quot;)
+
+
+#########################
+# Examining the Substance
+# (quanteda)
+#########################
+### key words in context
+kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
+<pre><code>##                                                                       
+##   [HRC 2015-10-13, 344]       us balance | family | and work          
+##   [HRC 2015-10-13, 369]         had paid | family | leave for         
+##  [HRC 2015-12-19, 5812]               .. | family | leave for         
+##  [HRC 2015-12-19, 7217]           of the | family | of a              
+##  [HRC 2016-01-17, 3176]         for paid | family | leave.            
+##   [HRC 2016-02-04, 950]           , paid | family | leave and         
+##  [HRC 2016-02-04, 6905]          on paid | family | leave,            
+##   [HRC 2016-02-11, 984] average American | family | ? In              
+##  [HRC 2016-02-11, 1007]      toward paid | family | leave,            
+##  [HRC 2016-02-11, 1689]           , paid | family | leave,            
+##  [HRC 2016-02-11, 2134]            . His | family | certainly believes
+##  [HRC 2016-02-11, 3340]           end of | family | detention,        
+##  [HRC 2016-03-06, 3912]        any other | family | . And             
+##  [HRC 2016-03-09, 1396]           to end | family | detention.And in  
+##  [HRC 2016-03-09, 1917]        to deport | family | members either    
+##  [HRC 2016-03-09, 3198]       bring your | family | back together     
+##  [HRC 2016-03-09, 6040]         . Median | family | income went       
+##   [HRC 2016-09-26, 221]       to balance | family | and work          
+##   [HRC 2016-09-26, 249]        have paid | family | leave,            
+##   [HRC 2016-09-26, 859]      trillion in | family | wealth was        
+##  [HRC 2016-09-26, 2237]         for your | family | . And             
+##   [HRC 2016-10-09, 940]        Gold Star | family | whose son         
+##  [HRC 2016-10-09, 2656]         and your | family | are just          
+##  [HRC 2016-10-09, 5693]      trillion in | family | wealth was        
+##  [HRC 2016-10-19, 1205]          and her | family | has to            
+##  [HRC 2016-10-19, 4620]        Gold Star | family | , because</code></pre>
+<pre class="r"><code>kwic(djtcorpus, &quot;family&quot;, 2)</code></pre>
+<pre><code>##                                                          
+##  [DJT 2015-08-06, 1246]   for my | family | , et         
+##  [DJT 2015-09-16, 1217]    to my | family | , to         
+##   [DJT 2015-10-28, 799]   for my | family | , for        
+##   [DJT 2015-12-15, 766] friends, | family | , girlfriends
+##  [DJT 2016-03-03, 2010]    to my | family | , to         
+##  [DJT 2016-03-03, 3852]   when a | family | flies into   
+##  [DJT 2016-03-03, 3871]  and his | family | gets sent    
+##  [DJT 2016-09-26, 2358]   for my | family | ? Lester     
+##  [DJT 2016-09-26, 3797]     , my | family | , my         
+##  [DJT 2016-09-26, 9444]   to her | family | , and        
+##   [DJT 2016-10-09, 430]    to my | family | . I          
+##  [DJT 2016-10-09, 1056]   for my | family | , for</code></pre>
+<p>Clinton’s use of the word family centered around paid family leave, worklife balance, military families, and the like. Trump’s use of family, by contrast, almost always referenced his own.</p>
+<p>How about immigration? Here I’ll use a regular expression to extract multiple forms of the word.</p>
+<pre class="r"><code>kwic(hrccorpus, &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
+<pre><code>##                                                      
+##  [HRC 2015-10-13, 4363]             opportunity for |
+##  [HRC 2015-10-13, 4431]             a comprehensive |
+##  [HRC 2015-10-13, 4486]       Demonize hard-working |
+##  [HRC 2015-11-14, 2675]          need comprehensive |
+##  [HRC 2015-11-14, 2702]                     the net |
+##  [HRC 2015-11-14, 2786]                      of our |
+##   [HRC 2016-01-17, 367]                       do on |
+##   [HRC 2016-02-04, 880]               Ted Kennedy&#39;s |
+##  [HRC 2016-02-04, 6994]                      in the |
+##  [HRC 2016-02-04, 7358]         think comprehensive |
+##   [HRC 2016-02-11, 179]               . Hardworking |
+##  [HRC 2016-02-11, 3118]             not hardworking |
+##  [HRC 2016-02-11, 3146]            of comprehensive |
+##  [HRC 2016-02-11, 3175]           for comprehensive |
+##  [HRC 2016-02-11, 3198]            to comprehensive |
+##  [HRC 2016-02-11, 3269]           get comprehensive |
+##   [HRC 2016-03-09, 154]    discussing comprehensive |
+##  [HRC 2016-03-09, 1020]            to comprehensive |
+##  [HRC 2016-03-09, 1043]            on comprehensive |
+##  [HRC 2016-03-09, 1084]      achieved comprehensive |
+##  [HRC 2016-03-09, 1128]            of comprehensive |
+##  [HRC 2016-03-09, 1283]   introducing comprehensive |
+##  [HRC 2016-03-09, 1425]            for undocumented |
+##  [HRC 2016-03-09, 1453]                   hunt down |
+##  [HRC 2016-03-09, 1505]               Ted Kennedy&#39;s |
+##  [HRC 2016-03-09, 1541]                    going to |
+##  [HRC 2016-03-09, 1806]              , undocumented |
+##  [HRC 2016-03-09, 1857]           our comprehensive |
+##  [HRC 2016-03-09, 2130]       achieve comprehensive |
+##  [HRC 2016-03-09, 2257]                 workers and |
+##  [HRC 2016-03-09, 2281]          pass comprehensive |
+##  [HRC 2016-03-09, 2331]                   hunt down |
+##  [HRC 2016-03-09, 2358]           get comprehensive |
+##  [HRC 2016-03-09, 2699]            do comprehensive |
+##  [HRC 2016-03-09, 2802]            to comprehensive |
+##  [HRC 2016-03-09, 2978]            of comprehensive |
+##  [HRC 2016-03-09, 4860]             - comprehensive |
+##   [HRC 2016-10-09, 605]               also targeted |
+##  [HRC 2016-10-09, 5404]                     , about |
+##  [HRC 2016-10-19, 1571]            my comprehensive |
+##  [HRC 2016-10-19, 1669]                   nation of |
+##  [HRC 2016-10-19, 1690]   introducing comprehensive |
+##  [HRC 2016-10-19, 1759]            campaign bashing |
+##  [HRC 2016-10-19, 1763]             calling Mexican |
+##  [HRC 2016-10-19, 1786]                   deal with |
+##  [HRC 2016-10-19, 1797]       bringing undocumented |
+##  [HRC 2016-10-19, 1959]                     to sign |
+##  [HRC 2016-10-19, 5295]               talking about |
+##  [HRC 2016-10-19, 5309]                      of all |
+##  [HRC 2016-10-19, 5310] all immigrants-undocumented |
+##  [HRC 2016-10-19, 5323]           have undocumented |
+##                                            
+##        immigrants        | to be           
+##        immigration       | reform,         
+##        immigrants        | who have        
+##        immigration       | reform with     
+##        immigration       | from Mexico     
+##        immigration       | history and     
+##        immigration       | reform,         
+##        immigration       | reform.         
+##   beginning.Immigration  | reform,         
+##        immigration       | reform with     
+##         immigrant        | families living 
+##         immigrant        | families who    
+##        immigration       | reform.         
+##        immigration       | reform in       
+##        immigration       | reform with     
+##        immigration       | reform.         
+##        immigration       | reform with     
+##        immigration       | reform with     
+##        immigration       | reform.         
+##        immigration       | reform nine     
+##        immigration       | reform and      
+##        immigration       | reform with     
+##        immigrants        | , and           
+##       immigrants.So      | I think         
+##        immigration       | reform which    
+##    immigrants.SALINAS    | [ through       
+##        immigrants        | , the           
+##        immigration       | reform,         
+##        immigration       | reform if       
+##      immigrants.They     | have proven     
+##        immigration       | reform in       
+##       immigrants.So      | look,           
+##        immigration       | reform.         
+##        immigration       | reform.         
+##        immigration       | reform with     
+##        immigration       | reform.         
+##        immigration       | reform certainly
+##        immigrants        | , African       
+##        immigrants        | , about         
+##        immigration       | reform plan     
+##        immigrants        | and we          
+##        immigration       | reform within   
+##        immigrants        | , calling       
+##        immigrants        | rapists and     
+##      immigrants.Now      | , what          
+##        immigrants        | out from        
+##        immigration       | reform,         
+##        immigrants        | a few           
+##  immigrants-undocumented | immigrants in   
+##        immigrants        | in our          
+##        immigrants        | in America</code></pre>
+<pre class="r"><code>kwic(djtcorpus, &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
+<pre><code>##                                                                           
+##   [DJT 2015-08-06, 375]   about illegal |   immigration   | , Chris       
+##  [DJT 2015-09-16, 2094]     are illegal |   immigrants    | . I           
+##  [DJT 2015-09-16, 2191]   about illegal |   immigration   | if it         
+##  [DJT 2015-09-16, 2321]       . Illegal |   immigration   | is costing    
+##  [DJT 2015-09-16, 2464]         weak on |   immigration   | - by          
+##  [DJT 2015-09-16, 2485]         weak on |   immigration   | . He          
+##   [DJT 2015-11-10, 255]    stop illegal |   immigration   | . It&#39;s        
+##   [DJT 2015-11-10, 567] million illegal |   immigrants    | out of        
+##  [DJT 2016-01-14, 1219]       . Illegal |   immigration   | is beyond     
+##    [DJT 2016-02-06, 65]           I hit |   immigration   | , I           
+##    [DJT 2016-02-06, 88]   about illegal | immigration.Now | , everybody&#39;s 
+##  [DJT 2016-02-13, 1955]       , illegal |   immigration   | wasn&#39;t even   
+##  [DJT 2016-02-13, 2008]      on illegal |   immigration   | is Jeb        
+##  [DJT 2016-02-13, 2035]      on illegal |   immigration   | it&#39;s laughable
+##   [DJT 2016-02-25, 205]  about illegals |   immigration   | . It          
+##  [DJT 2016-03-03, 2390]        terms of |   immigration   | - and         
+##  [DJT 2016-03-03, 2783]      on illegal |   immigration   | . Sheriff     
+##  [DJT 2016-09-26, 4364]       , illegal |   immigrants    | . And         
+##  [DJT 2016-09-26, 6278]       before on |   immigration   | . I           
+##  [DJT 2016-10-19, 7358]      of illegal |   immigrants    | , people</code></pre>
+<p>It’s a pain that the words after the keyword wrapped around in the console for Clinton’s corpus, but it’s pretty clear her primary references to immigration or immigrants centered on comprehensive immigration reform. She made some references to undocumented immigrants, but never used the language of “illegal” that characterizes Trump’s language.</p>
+<p>Finally, for something a little more light hearted:</p>
+<pre class="r"><code>kwic(hrccorpus, &quot;hands&quot;, 3)</code></pre>
+<pre><code>##                                                                   
+##  [HRC 2015-10-13, 2050]   blood on his | hands | , as I&#39;m         
+##  [HRC 2015-10-13, 2362] into the wrong | hands | . I know         
+##  [HRC 2015-11-14, 1045]   blood on his | hands | of Americans than
+##  [HRC 2015-11-14, 5273]  which he then | hands | over to the      
+##  [HRC 2015-12-19, 3238]   blood on his | hands | , is overturned  
+##  [HRC 2016-02-11, 3329] journey in the | hands | of smugglers.    
+##  [HRC 2016-03-06, 2977]      we take a | hands | off approach.    
+##  [HRC 2016-04-14, 3136]     out of the | hands | of who should    
+##  [HRC 2016-09-26, 3510]     out of the | hands | of people who    
+##  [HRC 2016-09-26, 4045]     out of the | hands | of those who     
+##  [HRC 2016-09-26, 6407] ever get their | hands | on any nuclear   
+##  [HRC 2016-10-09, 1432]   in the wrong | hands | . Look,          
+##  [HRC 2016-10-09, 2634] plays into the | hands | of the terrorists</code></pre>
+<pre class="r"><code>kwic(djtcorpus, &quot;hands&quot;, 3)</code></pre>
+<pre><code>##                                                                      
+##  [DJT 2016-01-14, 3866] position, their | hands | up.And Iranian wise
+##   [DJT 2016-03-03, 511]       He hit my | hands | . Nobody has       
+##   [DJT 2016-03-03, 518]     ever hit my | hands | . I have           
+##   [DJT 2016-03-03, 530]   Look at those | hands | . Are they         
+##   [DJT 2016-03-03, 535]  Are they small | hands | ?[ laughter        
+##   [DJT 2016-03-03, 545]  referred to my | hands | , if they</code></pre>
+<p>That’s right. Trump kept bringing up his wee hands in that March primary debate. Hahaha…ha?</p>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/r/">R</a>, 
+            
+                <a href="/tags/debates/">debates</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        
+        <script src="//yihui.name/js/math-code.js"></script>
+        <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+

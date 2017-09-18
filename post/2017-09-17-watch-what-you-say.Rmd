@@ -1,0 +1,88 @@
+---
+title: Watch What You Say
+author: Michele Claibourn
+date: '2017-09-17'
+slug: watch-what-you-say
+categories: []
+tags: [R, debates]
+---
+
+## The Content of Debates
+
+In addition to the [complexity](../../14/2017-09-14-debate-watch/) and the [tone](../../14/2017-09-14-do-you-hear-what-i-hear/) of last Fall's presidential election debates, I started exploring the content. What did the candidates talk about?
+
+Content -- themes, substance, issues, etc.  -- is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
+```{r message=FALSE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(wordcloud)
+
+setwd("../../../dataForDemocracy/debate2016analysis/")
+load("debateSpeech2016.RData") # the corpus as created in acquire_debates.R
+
+# subset for just HRC, DJT
+candcorpus <- corpus_subset(debate16corpus, speaker=="HRC" | speaker=="DJT")
+
+# create document feature matrix
+debatedfm <- dfm(candcorpus, 
+               remove = c(stopwords("english"), 
+                          "applause", "laughter", "crosstalk", "laughther"),
+               remove_punct = TRUE,
+               remove_numbers = TRUE,
+               verbose = TRUE)
+
+# most frequent terms
+topfeatures(debatedfm, n = 25, groups = "speaker")
+```
+Honestly, basic word frequencies revealed little of substance, so I'll skip straight to the obligatory wordcloud (I'm pretty sure there's a rule). To make the piechart of text visualization a little more interesting, I'll do a comparison cloud to represent the words that are most distinctive to one of the speakers.
+```{r message=FALSE}
+# set up for figure
+debatedf <- as.data.frame(debatedfm) # turn into dataframe
+hrcdf <- rowSums(t(debatedf[1:13,])) # sum word use by candidate
+djtdf <- rowSums(t(debatedf[14:27,]))
+d <- as.data.frame(cbind(hrcdf, djtdf))
+
+# word comparison cloud (wordcloud)
+colnames(d) <- c("HRC", "DJT")
+comparison.cloud(d, max.words=200, 
+                 scale=c(4,.33), random.order=FALSE, 
+                 colors=c("blue3", "orange3"), title.size=1)
+```
+The bigger the word, the more its rate of appearance in one set of texts exceeds its rate of use across the entire collection. 
+
+For HRC we have: president, senator, support, think, work; some Sanders, Donald, health, and american; and bits of families, children, affordable, and working.
+
+For DJT we have: going, country, people, say, look, great, and many; with some of tremendous, china, deal, wrong, disaster, bad, nobody; and smaller bits of million, money, mean. I struggle to find issue-related words here, except in some tiny words
+(russia, mexico, border, isis, obamacare). In part, this underscores how little substance was emphasized in these events.
+
+One last angle (for this post) -- another simple way to get a snapshot of the debate substance is to explore key-words-in-context for target words, like so:
+```{r message=FALSE}
+# subsetting the corpus
+hrccorpus <- corpus_subset(debate16corpus, speaker=="HRC")
+djtcorpus <- corpus_subset(debate16corpus, speaker=="DJT")
+
+
+#########################
+# Examining the Substance
+# (quanteda)
+#########################
+### key words in context
+kwic(hrccorpus, "family", 2)
+kwic(djtcorpus, "family", 2)
+```
+Clinton's use of the word family centered around paid family leave, worklife balance, military families, and the like. Trump's use of family, by contrast, almost always referenced his own.
+
+How about immigration? Here I'll use a regular expression to extract multiple forms of the word.
+```{r message=FALSE}
+kwic(hrccorpus, "immig", 2, "regex")
+kwic(djtcorpus, "immig", 2, "regex")
+```
+It's a pain that the words after the keyword wrapped around in the console for Clinton's corpus, but it's pretty clear her primary references to immigration or immigrants centered on comprehensive immigration reform. She made some references to undocumented immigrants, but never used the language of "illegal" that characterizes Trump's language.
+
+Finally, for something a little more light hearted:
+```{r message=FALSE}
+kwic(hrccorpus, "hands", 3)
+kwic(djtcorpus, "hands", 3)
+```
+That's right. Trump kept bringing up his wee hands in that March primary debate. Hahaha...ha?
