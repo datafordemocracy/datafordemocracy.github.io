@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stm on Data for Democracy Lab</title>
+    <link>https://datafordemocracy.github.io/tags/stm/</link>
+    <description>Recent content in Stm on Data for Democracy Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Michele Claibourn</copyright>
+    <lastBuildDate>Mon, 18 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datafordemocracy.github.io/tags/stm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debating the Issues?</title>
+      <link>https://datafordemocracy.github.io/2017/09/18/2017-09-18-debating-the-issues/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/2017/09/18/2017-09-18-debating-the-issues/</guid>
+      <description>Debate Content, Part II The prior post on debate content didn’t suggest much policy or issue-oriented actual debate. Nevertheless, here’s one last attempt to get at the substance of the presidential election debates.
+I’m starting by estimating a mixed membership clustering algorithm, a topic model, to see if identifiable topics arise from the word usage in the debates. The structural topic model, provided in the stm package, will estimate a chosen number of topics, provide the document proportions for each topic, and the word probabilities for each topic.</description>
+    </item>
+    
+  </channel>
+</rss>

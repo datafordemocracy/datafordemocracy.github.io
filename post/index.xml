@@ -2,22 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data for Democracy Lab</title>
-    <link>/post/</link>
+    <link>https://datafordemocracy.github.io/post/</link>
     <description>Recent content in Posts on Data for Democracy Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michele Claibourn</copyright>
-    <lastBuildDate>Sun, 17 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datafordemocracy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Watch What You Say</title>
-      <link>/2017/09/17/2017-09-17-watch-what-you-say/</link>
+      <title>Debating the Issues?</title>
+      <link>https://datafordemocracy.github.io/2017/09/18/2017-09-18-debating-the-issues/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/2017/09/18/2017-09-18-debating-the-issues/</guid>
+      <description>Debate Content, Part II The prior post on debate content didn’t suggest much policy or issue-oriented actual debate. Nevertheless, here’s one last attempt to get at the substance of the presidential election debates.
+I’m starting by estimating a mixed membership clustering algorithm, a topic model, to see if identifiable topics arise from the word usage in the debates. The structural topic model, provided in the stm package, will estimate a chosen number of topics, provide the document proportions for each topic, and the word probabilities for each topic.</description>
+    </item>
+    
+    <item>
+      <title>Watching What You Say</title>
+      <link>https://datafordemocracy.github.io/2017/09/17/2017-09-17-watch-what-you-say/</link>
       <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/17/2017-09-17-watch-what-you-say/</guid>
+      <guid>https://datafordemocracy.github.io/2017/09/17/2017-09-17-watch-what-you-say/</guid>
       <description>The Content of Debates In addition to the complexity and the tone of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?
 Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
 rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&amp;quot;../../../dataForDemocracy/debate2016analysis/&amp;quot;) load(&amp;quot;debateSpeech2016.RData&amp;quot;) # the corpus as created in acquire_debates.</description>
@@ -25,10 +35,10 @@ rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&amp
     
     <item>
       <title>Do You Hear What I Hear?</title>
-      <link>/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</link>
+      <link>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
+      <guid>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
       <description>More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
 Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to capture the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
 library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&amp;quot;.</description>
@@ -36,10 +46,10 @@ library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&am
     
     <item>
       <title>Debate Watch!</title>
-      <link>/2017/09/13/2017-09-14-debate-watch/</link>
+      <link>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/13/2017-09-14-debate-watch/</guid>
+      <guid>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</guid>
       <description>Exploring the Debates Campaigns debates are an interesting platform – one of the only opportunities for the candidates to appear together, in a symmetric sort of setting for the viewers (and the candidates). And one of the few moments when aspiring leaders can speak at length to a mass audience about their values, priorities, and policy intentions.
 The first general election debate of 2016 broke records for presidential debate viewership, with about 84M viewers; this fell in the second debate with a still re-spectable 67M (against NFL football), and a third place record of 72M for the third debate.</description>
     </item>

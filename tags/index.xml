@@ -2,49 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Data for Democracy Lab</title>
-    <link>/tags/</link>
+    <link>https://datafordemocracy.github.io/tags/</link>
     <description>Recent content in Tags on Data for Democracy Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michele Claibourn</copyright>
     <lastBuildDate>Sun, 17 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datafordemocracy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debates</title>
-      <link>/tags/debates/</link>
+      <link>https://datafordemocracy.github.io/tags/debates/</link>
       <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/debates/</guid>
+      <guid>https://datafordemocracy.github.io/tags/debates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quanteda</title>
-      <link>/tags/quanteda/</link>
+      <link>https://datafordemocracy.github.io/tags/quanteda/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/quanteda/</guid>
+      <guid>https://datafordemocracy.github.io/tags/quanteda/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      <link>https://datafordemocracy.github.io/tags/r/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://datafordemocracy.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stm</title>
+      <link>https://datafordemocracy.github.io/tags/stm/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/tags/stm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tidytext</title>
-      <link>/tags/tidytext/</link>
+      <link>https://datafordemocracy.github.io/tags/tidytext/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidytext/</guid>
+      <guid>https://datafordemocracy.github.io/tags/tidytext/</guid>
       <description></description>
     </item>
     

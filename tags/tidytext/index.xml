@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tidytext on Data for Democracy Lab</title>
-    <link>/tags/tidytext/</link>
+    <link>https://datafordemocracy.github.io/tags/tidytext/</link>
     <description>Recent content in Tidytext on Data for Democracy Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michele Claibourn</copyright>
     <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tidytext/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datafordemocracy.github.io/tags/tidytext/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Do You Hear What I Hear?</title>
-      <link>/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</link>
+      <link>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
+      <guid>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</guid>
       <description>More Debate Watch (… or debate read?) In the prior post, I introduced some analysis of the 2016 presidential debates I was playing with last fall. Here’s more!1
 Let’s switch to the tone of the debate. I started by applying a common dictonary of positive and negative words (the bing dictionary available in tidytext) to capture the tone or sentiment of Trump’s and Clinton’s speech using quanteda’s dictionary function.
 library(tidyverse) library(quanteda) library(scales) library(tidytext) setwd(&amp;quot;.</description>

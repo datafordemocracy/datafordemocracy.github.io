@@ -3,90 +3,101 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2017/09/17/2017-09-17-watch-what-you-say/</loc>
+    <loc>https://datafordemocracy.github.io/2017/09/18/2017-09-18-debating-the-issues/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datafordemocracy.github.io/2017/09/17/2017-09-17-watch-what-you-say/</loc>
     <lastmod>2017-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</loc>
+    <loc>https://datafordemocracy.github.io/2017/09/14/2017-09-14-do-you-hear-what-i-hear/</loc>
     <lastmod>2017-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/public-presidency/</loc>
+    <loc>https://datafordemocracy.github.io/public-presidency/</loc>
     <lastmod>2017-09-13T02:13:50+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2017/09/13/2017-09-14-debate-watch/</loc>
+    <loc>https://datafordemocracy.github.io/2017/09/13/2017-09-14-debate-watch/</loc>
     <lastmod>2017-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/page/about/</loc>
+    <loc>https://datafordemocracy.github.io/page/about/</loc>
     <lastmod>2017-09-12T00:00:00-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/public-interest-data-lab/</loc>
+    <loc>https://datafordemocracy.github.io/public-interest-data-lab/</loc>
     <lastmod>2017-09-12T02:13:50+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/presidential-debates/</loc>
+    <loc>https://datafordemocracy.github.io/presidential-debates/</loc>
     <lastmod>2017-09-11T17:54:14-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://datafordemocracy.github.io/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datafordemocracy.github.io/tags/debates/</loc>
     <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/debates/</loc>
-    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/page/</loc>
+    <loc>https://datafordemocracy.github.io/page/</loc>
     <lastmod>2017-09-12T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
+    <loc>https://datafordemocracy.github.io/post/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/</loc>
+    <loc>https://datafordemocracy.github.io/project/</loc>
     <lastmod>2017-09-13T02:13:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/quanteda/</loc>
+    <loc>https://datafordemocracy.github.io/tags/quanteda/</loc>
     <lastmod>2017-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>https://datafordemocracy.github.io/tags/r/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datafordemocracy.github.io/tags/stm/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datafordemocracy.github.io/tags/</loc>
     <lastmod>2017-09-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tidytext/</loc>
+    <loc>https://datafordemocracy.github.io/tags/tidytext/</loc>
     <lastmod>2017-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

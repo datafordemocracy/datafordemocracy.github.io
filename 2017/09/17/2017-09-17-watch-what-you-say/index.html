@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Watch What You Say &middot; Data for Democracy @ UVA</title>
+        <title>Watching What You Say &middot; Data for Democracy @ UVA</title>
         <meta name="description" content="The Content of Debates In addition to the complexity and the tone of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?
 Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
 rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;) load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.">
@@ -12,13 +12,13 @@ rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quo
         <meta name="generator" content="Hugo 0.27" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="Watch What You Say">
+        <meta property="og:title" content="Watching What You Say">
 <meta property="og:description" content="The Content of Debates In addition to the complexity and the tone of last Fall’s presidential election debates, I started exploring the content. What did the candidates talk about?
 Content – themes, substance, issues, etc. – is a more challenging, but for my purposes, a more important, feature of this text. I started with some basic word frequencies.
 rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quot;../../../dataForDemocracy/debate2016analysis/&quot;) load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_debates.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/2017/09/17/2017-09-17-watch-what-you-say/">
-        <link rel="stylesheet" href="/dist/styles.css">
+<meta property="og:url" content="https://datafordemocracy.github.io/2017/09/17/2017-09-17-watch-what-you-say/">
+        <link rel="stylesheet" href="https://datafordemocracy.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
@@ -32,10 +32,10 @@ rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quo
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                                <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
                             </h1>
                         
-                        <a class="button-square" href="/index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="https://datafordemocracy.github.io/index.xml"><i class="fa fa-rss"></i></a>
                         
                         
                         
@@ -81,7 +81,7 @@ rm(list=ls()) library(tidyverse) library(quanteda) library(wordcloud) setwd(&quo
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Watch What You Say</h1>
+    <h1 class="post-title" itemprop="name headline">Watching What You Say</h1>
     
     <p class="post-date">
         <span>Published <time datetime="2017-09-17" itemprop="datePublished">Sun, Sep 17, 2017</time></span>
@@ -113,9 +113,9 @@ load(&quot;debateSpeech2016.RData&quot;) # the corpus as created in acquire_deba
 candcorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;HRC&quot; | speaker==&quot;DJT&quot;)
 
 # create document feature matrix
+otherStop &lt;- c(&quot;applause&quot;, &quot;laughter&quot;, &quot;crosstalk&quot;, &quot;laughther&quot;)
 debatedfm &lt;- dfm(candcorpus, 
-               remove = c(stopwords(&quot;english&quot;), 
-                          &quot;applause&quot;, &quot;laughter&quot;, &quot;crosstalk&quot;, &quot;laughther&quot;),
+               remove = c(stopwords(&quot;english&quot;), otherStop),
                remove_punct = TRUE,
                remove_numbers = TRUE,
                verbose = TRUE)
@@ -155,17 +155,8 @@ comparison.cloud(d, max.words=200,
 <p>For HRC we have: president, senator, support, think, work; some Sanders, Donald, health, and american; and bits of families, children, affordable, and working.</p>
 <p>For DJT we have: going, country, people, say, look, great, and many; with some of tremendous, china, deal, wrong, disaster, bad, nobody; and smaller bits of million, money, mean. I struggle to find issue-related words here, except in some tiny words (russia, mexico, border, isis, obamacare). In part, this underscores how little substance was emphasized in these events.</p>
 <p>One last angle (for this post) – another simple way to get a snapshot of the debate substance is to explore key-words-in-context for target words, like so:</p>
-<pre class="r"><code># subsetting the corpus
-hrccorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;HRC&quot;)
-djtcorpus &lt;- corpus_subset(debate16corpus, speaker==&quot;DJT&quot;)
-
-
-#########################
-# Examining the Substance
-# (quanteda)
-#########################
-### key words in context
-kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
+<pre class="r"><code>### key words in context
+kwic(corpus_subset(candcorpus, speaker==&quot;HRC&quot;), &quot;family&quot;, 2)</code></pre>
 <pre><code>##                                                                       
 ##   [HRC 2015-10-13, 344]       us balance | family | and work          
 ##   [HRC 2015-10-13, 369]         had paid | family | leave for         
@@ -193,7 +184,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
 ##  [HRC 2016-10-09, 5693]      trillion in | family | wealth was        
 ##  [HRC 2016-10-19, 1205]          and her | family | has to            
 ##  [HRC 2016-10-19, 4620]        Gold Star | family | , because</code></pre>
-<pre class="r"><code>kwic(djtcorpus, &quot;family&quot;, 2)</code></pre>
+<pre class="r"><code>kwic(corpus_subset(candcorpus, speaker==&quot;DJT&quot;), &quot;family&quot;, 2)</code></pre>
 <pre><code>##                                                          
 ##  [DJT 2015-08-06, 1246]   for my | family | , et         
 ##  [DJT 2015-09-16, 1217]    to my | family | , to         
@@ -209,7 +200,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
 ##  [DJT 2016-10-09, 1056]   for my | family | , for</code></pre>
 <p>Clinton’s use of the word family centered around paid family leave, worklife balance, military families, and the like. Trump’s use of family, by contrast, almost always referenced his own.</p>
 <p>How about immigration? Here I’ll use a regular expression to extract multiple forms of the word.</p>
-<pre class="r"><code>kwic(hrccorpus, &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
+<pre class="r"><code>kwic(corpus_subset(candcorpus, speaker==&quot;HRC&quot;), &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
 <pre><code>##                                                      
 ##  [HRC 2015-10-13, 4363]             opportunity for |
 ##  [HRC 2015-10-13, 4431]             a comprehensive |
@@ -314,7 +305,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
 ##  immigrants-undocumented | immigrants in   
 ##        immigrants        | in our          
 ##        immigrants        | in America</code></pre>
-<pre class="r"><code>kwic(djtcorpus, &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
+<pre class="r"><code>kwic(corpus_subset(candcorpus, speaker==&quot;DJT&quot;), &quot;immig&quot;, 2, &quot;regex&quot;)</code></pre>
 <pre><code>##                                                                           
 ##   [DJT 2015-08-06, 375]   about illegal |   immigration   | , Chris       
 ##  [DJT 2015-09-16, 2094]     are illegal |   immigrants    | . I           
@@ -338,7 +329,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
 ##  [DJT 2016-10-19, 7358]      of illegal |   immigrants    | , people</code></pre>
 <p>It’s a pain that the words after the keyword wrapped around in the console for Clinton’s corpus, but it’s pretty clear her primary references to immigration or immigrants centered on comprehensive immigration reform. She made some references to undocumented immigrants, but never used the language of “illegal” that characterizes Trump’s language.</p>
 <p>Finally, for something a little more light hearted:</p>
-<pre class="r"><code>kwic(hrccorpus, &quot;hands&quot;, 3)</code></pre>
+<pre class="r"><code>kwic(corpus_subset(candcorpus, speaker==&quot;HRC&quot;), &quot;hands&quot;, 3)</code></pre>
 <pre><code>##                                                                   
 ##  [HRC 2015-10-13, 2050]   blood on his | hands | , as I&#39;m         
 ##  [HRC 2015-10-13, 2362] into the wrong | hands | . I know         
@@ -353,7 +344,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
 ##  [HRC 2016-09-26, 6407] ever get their | hands | on any nuclear   
 ##  [HRC 2016-10-09, 1432]   in the wrong | hands | . Look,          
 ##  [HRC 2016-10-09, 2634] plays into the | hands | of the terrorists</code></pre>
-<pre class="r"><code>kwic(djtcorpus, &quot;hands&quot;, 3)</code></pre>
+<pre class="r"><code>kwic(corpus_subset(candcorpus, speaker==&quot;DJT&quot;), &quot;hands&quot;, 3)</code></pre>
 <pre><code>##                                                                      
 ##  [DJT 2016-01-14, 3866] position, their | hands | up.And Iranian wise
 ##   [DJT 2016-03-03, 511]       He hit my | hands | . Nobody has       
@@ -400,7 +391,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="Data for Democracy Lab" href="/">Data for Democracy Lab</a>
+                        <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
@@ -417,8 +408,8 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
             </div>
         </footer>
 
-        <script src="/js/jquery-1.11.3.min.js"></script>
-        <script src="/js/jquery.fitvids.js"></script>
+        <script src="https://datafordemocracy.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://datafordemocracy.github.io/js/jquery.fitvids.js"></script>
         
         <script src="//yihui.name/js/math-code.js"></script>
         <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -427,7 +418,7 @@ kwic(hrccorpus, &quot;family&quot;, 2)</code></pre>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         
         
-        <script src="/js/scripts.js"></script>
+        <script src="https://datafordemocracy.github.io/js/scripts.js"></script>
     </body>
 </html>
 
