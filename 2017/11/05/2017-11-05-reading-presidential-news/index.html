@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Reading Presidential News &middot; Data for Democracy @ UVA</title>
+        <meta name="description" content="Presidential News, take 1 One of the ongoing laments in the current presidential administration is that the news around the presidency is coming fast and furious. It’s hard to keep up. In this first stab at synthesizing presidential news, I grab all of the stories published in the New York Times and the Wall Street Journal that mention Trump in the lead. You can see more details about the article acquisition on the github page.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.27" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Reading Presidential News">
+<meta property="og:description" content="Presidential News, take 1 One of the ongoing laments in the current presidential administration is that the news around the presidency is coming fast and furious. It’s hard to keep up. In this first stab at synthesizing presidential news, I grab all of the stories published in the New York Times and the Wall Street Journal that mention Trump in the lead. You can see more details about the article acquisition on the github page.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://datafordemocracy.github.io/2017/11/05/2017-11-05-reading-presidential-news/">
+        <link rel="stylesheet" href="https://datafordemocracy.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://datafordemocracy.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/datafordemocracy">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mclaibourn@virginia.edu">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="The Public Presidency" href="/public-presidency/">The Public Presidency</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Reading Presidential News</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-11-05" itemprop="datePublished">Sun, Nov 5, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://www.sites.google.com/site/mclaibourn/home" itemprop="url" rel="author">Data for Democracy @ UVA</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <div id="presidential-news-take-1" class="section level2">
+<h2>Presidential News, take 1</h2>
+<p>One of the ongoing laments in the current presidential administration is that the news around the presidency is coming fast and furious. It’s hard to keep up. In this first stab at synthesizing presidential news, I grab all of the stories published in the New York Times and the Wall Street Journal that mention Trump in the lead. You can see more details about the article acquisition on the <a href="https://github.com/datafordemocracy/publicpresidency">github page</a>. I’ve been updating the scripts each month, so at this point, we have all of the newspaper stories from these sources through October (and it’s high time to start posting about it).</p>
+<p>After reading the articles into R, I extracted some article metadata (title, date, author, source, length, oped vs. news, and the first 500 words of the piece) and turned these into a Quanteda corpus. From January 20, 2017 through October 31, 2017 we have 10,497 articles. I removed news items with less than 100 words (these turned out, largely, to be corrections, quotations of the day, or caption items), leaving 10,283 news items. Let’s have a look, shall we?</p>
+<pre class="r"><code>rm(list=ls())
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(quanteda)
+library(scales)
+library(wordcloud)
+library(RColorBrewer)
+
+setwd(&quot;~/Box Sync/mpc/dataForDemocracy/newspaper/&quot;)
+load(&quot;workspaceR/newspaperExplore.RData&quot;)
+
+table(qmeta2$pub)</code></pre>
+<pre><code>## 
+##  NYT  WSJ 
+## 6687 3596</code></pre>
+<p>We have fewer articles for The Wall Street Journal; a part of that is due WSJ’s less frequent publication schedule, with no Sunday paper.</p>
+<pre class="r"><code># Create date breaks to get select tick marks on graph
+date.vec &lt;- seq(from=as.Date(&quot;2017-01-20&quot;), to=as.Date(&quot;2017-11-03&quot;), by=&quot;week&quot;) 
+# Number of stories by day
+p &lt;- ggplot(qmeta2, aes(x=date)) 
+p + stat_count(aes(fill=..count..), geom=&quot;point&quot;) + 
+  facet_wrap(~ pub) +
+  scale_x_date(labels = date_format(&quot;%m/%d&quot;), breaks=date.vec) + 
+  ggtitle(&quot;Volume of News Coverage of Trump\n New York Times and Wall Street Journal&quot;) +
+  labs(x=&quot;Date&quot;, y=&quot;Number of Stories&quot;) +
+  theme(axis.text.x=element_text(angle=90), 
+        plot.title = element_text(face=&quot;bold&quot;, size=20, hjust=0), 
+        axis.title = element_text(face=&quot;bold&quot;, size=16),
+        panel.grid.minor = element_blank(),
+        legend.position=&quot;none&quot;)</code></pre>
+<p><img src="/post/2017-11-05-reading-presidential-news_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>While the NY Times initially had considerably more coverage of Trump, the two papers have stabilized around a similar volume of news articles mentionining him or his presidency in the lead each day – about 18 articles on average for the NYT and 11 for the WSJ.</p>
+<p>Just for fun, let’s look at complexity of the news coverage, using the Flesch-Kincaid readability index.</p>
+<pre class="r"><code>## Readability/Complexity Analysis (from quanteda)
+fk &lt;- textstat_readability(qcorpus2, measure = &quot;Flesch.Kincaid&quot;) # back to qcorpus2 (with stopwords)
+qmeta2$readability &lt;- fk
+
+# Plot
+p &lt;- ggplot(qmeta2[qmeta2$readability&lt;100,], aes(x = date, y = readability))
+p + geom_jitter(aes(color=pub), alpha=0.5, width=0.25, height=0.0, size=2) +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format(&quot;%m/%d&quot;), breaks=date.vec) + 
+  ggtitle(&quot;&#39;Readability&#39; of Newspaper Coverage of Trump&quot;) +
+  labs(y = &quot;Readability (grade level)&quot;, x = &quot;Date of Article&quot;) +
+  scale_color_manual(values=c(&quot;blue3&quot;,&quot;orange3&quot;), name=&quot;Source&quot;) +
+  theme(plot.title = element_text(face=&quot;bold&quot;, size=20, hjust=0),
+        axis.title = element_text(face=&quot;bold&quot;, size=16),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))</code></pre>
+<p><img src="/post/2017-11-05-reading-presidential-news_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The WSJ stories appear to be written at a slightly higher grade level than do the NYT stories, though both hover around 13 (roughly equivalent to a first-year college reading level).</p>
+<p>Finally, before moving into more nitty gritty of the presidential news, here’s a quick wordcloud of pieces from the NYT and from the WSJ, plotting the 200 most frequently occuring unigrams and bigrams.</p>
+<pre class="r"><code># Wordcloud by source
+bypaperdfm &lt;- dfm(qcorpus_tokens, groups = &quot;pub&quot;,
+                  remove = c(stopwords(&quot;english&quot;)),
+                  remove_punct = TRUE, ngrams = 1:2, verbose = TRUE)
+
+palO &lt;- colorRampPalette(brewer.pal(9,&quot;Oranges&quot;))(32)[13:32]
+palB &lt;- colorRampPalette(brewer.pal(9,&quot;Blues&quot;))(32)[13:32]
+
+textplot_wordcloud(bypaperdfm[1], max.words = 200, colors = palB, scale = c(4, .5)) # nyt</code></pre>
+<p><img src="/post/2017-11-05-reading-presidential-news_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>textplot_wordcloud(bypaperdfm[2], max.words = 200, colors = palO, scale = c(4, .5)) # wsj</code></pre>
+<p><img src="/post/2017-11-05-reading-presidential-news_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p>In truth, I rarely see anything illuminating in wordclouds, though it seems clear the NYT (blue) refers to the “United States”&quot; less frequently than the WSJ (orange). But both have a lot of “Mr. Trump”“, and many references to what somebody”said.&quot; I’ll promise some more interesting comparisons to come!</p>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/r/">r</a>, 
+            
+                <a href="/tags/quanteda/">quanteda</a>, 
+            
+                <a href="/tags/news/">news</a>, 
+            
+                <a href="/tags/newspaper/">newspaper</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Data for Democracy Lab" href="https://datafordemocracy.github.io/">Data for Democracy Lab</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://datafordemocracy.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://datafordemocracy.github.io/js/jquery.fitvids.js"></script>
+        
+        <script src="//yihui.name/js/math-code.js"></script>
+        <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://datafordemocracy.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

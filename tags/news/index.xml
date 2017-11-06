@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>News on Data for Democracy Lab</title>
+    <link>https://datafordemocracy.github.io/tags/news/</link>
+    <description>Recent content in News on Data for Democracy Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Michele Claibourn</copyright>
+    <lastBuildDate>Sun, 05 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datafordemocracy.github.io/tags/news/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reading Presidential News</title>
+      <link>https://datafordemocracy.github.io/2017/11/05/2017-11-05-reading-presidential-news/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/2017/11/05/2017-11-05-reading-presidential-news/</guid>
+      <description>Presidential News, take 1 One of the ongoing laments in the current presidential administration is that the news around the presidency is coming fast and furious. It’s hard to keep up. In this first stab at synthesizing presidential news, I grab all of the stories published in the New York Times and the Wall Street Journal that mention Trump in the lead. You can see more details about the article acquisition on the github page.</description>
+    </item>
+    
+  </channel>
+</rss>

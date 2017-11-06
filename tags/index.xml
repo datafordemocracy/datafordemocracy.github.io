@@ -22,9 +22,27 @@
     </item>
     
     <item>
+      <title>News</title>
+      <link>https://datafordemocracy.github.io/tags/news/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/tags/news/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Newspaper</title>
+      <link>https://datafordemocracy.github.io/tags/newspaper/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://datafordemocracy.github.io/tags/newspaper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Quanteda</title>
       <link>https://datafordemocracy.github.io/tags/quanteda/</link>
-      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://datafordemocracy.github.io/tags/quanteda/</guid>
       <description></description>
@@ -33,7 +51,7 @@
     <item>
       <title>R</title>
       <link>https://datafordemocracy.github.io/tags/r/</link>
-      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://datafordemocracy.github.io/tags/r/</guid>
       <description></description>
